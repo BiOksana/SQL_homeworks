@@ -1,0 +1,9 @@
+// у студента с ид 10 удалить курс Engineering:
+db.students.updateOne({_id : 10},{$pull : {courses: {title: "Engineering"}}})
+
+//у студента с ид  19 , удалить первую запись о посещаемости:
+db.students.updateOne({_id : 9},{$pop : {attendance: -1}})
+
+// посчитать количество студентов изучающих History:
+db.students.aggregate({$match:{"courses.title" : "History"}},{$count :"students_count"})
+db.students.aggregate({$match:{"courses.title" : "History"}},{$group : {_id:'History Students', total :{$sum :1}}})
