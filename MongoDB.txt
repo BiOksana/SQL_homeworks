@@ -1,7 +1,7 @@
 // у студента с ид 10 удалить курс Engineering:
 db.students.updateOne({_id : 10},{$pull : {courses: {title: "Engineering"}}})
 
-//у студента с ид  19 , удалить первую запись о посещаемости:
+//у студента с ид  9 , удалить первую запись о посещаемости:
 db.students.updateOne({_id : 9},{$pop : {attendance: -1}})
 
 // посчитать количество студентов изучающих History:
